@@ -52,6 +52,14 @@ namespace Miracle
 		}
 	};
 
+	class SyntaxNodeSubOperator : public SyntaxNodeBinaryOperator
+	{
+	public:
+		SyntaxNodeSubOperator()
+		{
+		}
+	};
+
 	class SyntaxTree
 	{
 	public:

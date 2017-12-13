@@ -9,6 +9,11 @@ namespace Miracle
 		None,
 		Number,
 		SymbolAdd,
+		SymbolSub,
+		SymbolMul,
+		SymbolDiv,
+		LeftBracket,
+		RightBracket,
 		EndSymbol
 	};
 
@@ -23,11 +28,14 @@ namespace Miracle
 	{
 		std::string strData;
 		size_t pos;
+		int readCount;
 
 	public:
 		Lexer(std::string str);
 
 		Token Read();
+
+		void Unread();
 
 		Token PeekToken();
 
@@ -36,6 +44,8 @@ namespace Miracle
 		Token ReadNumber();
 
 		Token ReadSymbol();
+
+		Token ReadBracket();
 
 		static bool IsSymbol(char ch);
 
@@ -48,5 +58,7 @@ namespace Miracle
 		static bool IsAlpha(char ch);
 
 		static bool IsBlanks(char ch);
+
+		static bool IsBracket(char ch);
 	};
 }

@@ -17,9 +17,12 @@ namespace Miracle
 			switch (code.type)
 			{
 			case CodeType::Mov:
+			{
 				intStack.emplace(code.n);
 				break;
+			}
 			case CodeType::Add:
+			{
 				int n1 = intStack.top();
 				intStack.pop();
 				int n2 = intStack.top();
@@ -28,6 +31,43 @@ namespace Miracle
 				intStack.emplace(result);
 				strResult = std::to_string(result);
 				break;
+			}
+			case CodeType::Sub:
+			{
+				int n1 = intStack.top();
+				intStack.pop();
+				int n2 = intStack.top();
+				intStack.pop();
+				int result = n2 - n1;
+				intStack.emplace(result);
+				strResult = std::to_string(result);
+				break;
+
+			}
+			case CodeType::Mul:
+			{
+				int n1 = intStack.top();
+				intStack.pop();
+				int n2 = intStack.top();
+				intStack.pop();
+				int result = n2 * n1;
+				intStack.emplace(result);
+				strResult = std::to_string(result);
+				break;
+
+			}
+			case CodeType::Div:
+			{
+				int n1 = intStack.top();
+				intStack.pop();
+				int n2 = intStack.top();
+				intStack.pop();
+				int result = n2 / n1;
+				intStack.emplace(result);
+				strResult = std::to_string(result);
+				break;
+
+			}
 			}
 		}
 

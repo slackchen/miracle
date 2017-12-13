@@ -9,7 +9,10 @@ namespace Miracle
 	enum class CodeType
 	{
 		Mov,
-		Add
+		Add,
+		Sub,
+		Mul,
+		Div
 	};
 
 	class Code

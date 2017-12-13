@@ -9,19 +9,31 @@ int main()
 {
 	std::string code = "1 + 3 + 8 + 10000000 + 142142124";
 
-	try
+	while (true)
 	{
-		Parser parser(code);
+		char buf[256] = { 0 };
 
-		SyntaxTree tree = parser.Parse();
-		Compiler compiler(tree);
-		Assembler assembler(compiler.codes);
+		std::cout << ">>";
+		std::cin.getline(buf, 255);
+		code = buf;
 
-		std::cout << code + " = " + assembler.Run() << std::endl;
-	}
-	catch (std::exception e)
-	{
-		std::cout << e.what() << std::endl;
+		if (code == "exit")
+			break;
+
+		try
+		{
+			Parser parser(code);
+
+			SyntaxTree tree = parser.Parse();
+			Compiler compiler(tree);
+			Assembler assembler(compiler.codes);
+
+			std::cout << assembler.Run() << std::endl;
+		}
+		catch (std::exception e)
+		{
+			std::cout << e.what() << std::endl;
+		}
 	}
 
 	return 0;

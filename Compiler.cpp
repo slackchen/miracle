@@ -31,6 +31,24 @@ namespace Miracle
 				codes.emplace_back(code);
 				break;
 			}
+		case TokenType::SymbolSub:
+			{
+				Code code(CodeType::Sub);
+				codes.emplace_back(code);
+				break;
+			}
+		case TokenType::SymbolMul:
+		{
+			Code code(CodeType::Mul);
+			codes.emplace_back(code);
+			break;
+		}
+		case TokenType::SymbolDiv:
+		{
+			Code code(CodeType::Div);
+			codes.emplace_back(code);
+			break;
+		}
 		case TokenType::Number:
 			{
 				Code code(CodeType::Mov);
