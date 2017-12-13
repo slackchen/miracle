@@ -60,6 +60,22 @@ namespace Miracle
 		}
 	};
 
+	class SyntaxNodeMulOperator : public SyntaxNodeBinaryOperator
+	{
+	public:
+		SyntaxNodeMulOperator()
+		{
+		}
+	};
+
+	class SyntaxNodeDivOperator : public SyntaxNodeBinaryOperator
+	{
+	public:
+		SyntaxNodeDivOperator()
+		{
+		}
+	};
+
 	class SyntaxTree
 	{
 	public:

@@ -29,10 +29,24 @@ namespace Miracle
 
 		while (tokenCurrent.type != TokenType::None)
 		{
-			if (tokenCurrent.type == TokenType::RightBracket)
+			if (tokenCurrent.type == TokenType::LeftBracket)
+			{
+				bracketPair++;
+				if (stack.empty())
+				{
+					auto n = syntaxTree.CreateNode<SyntaxNodeNumber>();
+					n->token.content = "0";
+					n->token.type = TokenType::Number;
+					auto opNode = syntaxTree.CreateNode<SyntaxNodeAddOperator>();
+					opNode->token.content = "+";
+					opNode->token.type = TokenType::SymbolAdd;
+					opNode->AddChild(n);
+					stack.emplace(opNode);
+				}
+			}
+			else if (tokenCurrent.type == TokenType::RightBracket)
 			{
 				bracketPair--;
-				return;
 			}
 			else if (tokenCurrent.type == TokenType::Number)
 			{
@@ -69,15 +83,12 @@ namespace Miracle
 					return;
 				}
 
-				if (
-					(tokenCurrent.type == TokenType::SymbolAdd || tokenCurrent.type == TokenType::SymbolSub)
-					&& ( nextPeek.type == TokenType::SymbolMul || nextPeek.type == TokenType::SymbolDiv)
-					)
+				if ( (tokenCurrent.type == TokenType::SymbolAdd || tokenCurrent.type == TokenType::SymbolSub)
+					&& ( nextPeek.type == TokenType::SymbolMul || nextPeek.type == TokenType::SymbolDiv) )
 				{
 					lexer.Unread();
 					ParseExp();
 					parentNode = syntaxTree.currentNode;
-
 				}
 
 
@@ -88,16 +99,16 @@ namespace Miracle
 				switch (op.type)
 				{
 				case TokenType::SymbolAdd:
-					opNode = syntaxTree.CreateNode<SyntaxNodeBinaryOperator>();
+					opNode = syntaxTree.CreateNode<SyntaxNodeAddOperator>();
 					break;
 				case TokenType::SymbolSub:
-					opNode = syntaxTree.CreateNode<SyntaxNodeBinaryOperator>();
+					opNode = syntaxTree.CreateNode<SyntaxNodeSubOperator>();
 					break;
 				case TokenType::SymbolMul:
-					opNode = syntaxTree.CreateNode<SyntaxNodeBinaryOperator>();
+					opNode = syntaxTree.CreateNode<SyntaxNodeMulOperator>();
 					break;
 				case TokenType::SymbolDiv:
-					opNode = syntaxTree.CreateNode<SyntaxNodeBinaryOperator>();
+					opNode = syntaxTree.CreateNode<SyntaxNodeDivOperator>();
 					break;
 				}
 				

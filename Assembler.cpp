@@ -19,6 +19,7 @@ namespace Miracle
 			case CodeType::Mov:
 			{
 				intStack.emplace(code.n);
+				strResult = std::to_string(code.n);
 				break;
 			}
 			case CodeType::Add:

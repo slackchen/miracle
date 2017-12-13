@@ -26,17 +26,17 @@ namespace Miracle
 		switch (syntaxNode->token.type)
 		{
 		case TokenType::SymbolAdd:
-			{
-				Code code(CodeType::Add);
-				codes.emplace_back(code);
-				break;
-			}
+		{
+			Code code(CodeType::Add);
+			codes.emplace_back(code);
+			break;
+		}
 		case TokenType::SymbolSub:
-			{
-				Code code(CodeType::Sub);
-				codes.emplace_back(code);
-				break;
-			}
+		{
+			Code code(CodeType::Sub);
+			codes.emplace_back(code);
+			break;
+		}
 		case TokenType::SymbolMul:
 		{
 			Code code(CodeType::Mul);
@@ -50,12 +50,12 @@ namespace Miracle
 			break;
 		}
 		case TokenType::Number:
-			{
-				Code code(CodeType::Mov);
-				code.n = std::stoi(syntaxNode->token.content);
-				codes.emplace_back(code);
-				break;
-			}
+		{
+			Code code(CodeType::Mov);
+			code.n = std::stoi(syntaxNode->token.content);
+			codes.emplace_back(code);
+			break;
+		}
 		}
 	}
 }
