@@ -22,6 +22,6 @@ namespace Miracle
 
 		void ParseExp();
 
-		void ParseError();
+		static void ParseError();
 	};
 }

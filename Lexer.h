@@ -37,16 +37,16 @@ namespace Miracle
 
 		Token ReadSymbol();
 
-		bool IsSymbol(char ch);
+		static bool IsSymbol(char ch);
 
-		bool IsEnd();
+		bool IsEnd() const;
 
 		void SkipBlanks();
 
-		bool IsNumber(char ch);
+		static bool IsNumber(char ch);
 
-		bool IsAlpha(char ch);
+		static bool IsAlpha(char ch);
 
-		bool IsBlanks(char ch);
+		static bool IsBlanks(char ch);
 	};
 }

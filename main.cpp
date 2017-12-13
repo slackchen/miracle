@@ -1,7 +1,4 @@
-#include "Lexer.h"
-#include "SyntaxTree.h"
 #include "Parser.h"
-#include "Assembler.h"
 #include "Compiler.h"
 
 #include <iostream>

@@ -12,7 +12,7 @@ namespace Miracle
 		intStack = std::stack<int>();
 		std::string strResult = "";
 
-		for (auto code : codes)
+		for (auto& code : codes)
 		{
 			switch (code.type)
 			{

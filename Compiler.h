@@ -3,7 +3,6 @@
 #include "Assembler.h"
 #include "SyntaxTree.h"
 
-
 namespace Miracle
 {
 	class Compiler

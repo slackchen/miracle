@@ -26,7 +26,6 @@ namespace Miracle
 
 	class Assembler
 	{
-
 		std::vector<Code> codes;
 		std::stack<int> intStack;
 

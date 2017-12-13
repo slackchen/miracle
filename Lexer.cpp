@@ -73,7 +73,7 @@ namespace Miracle
 		return ch == '+';
 	}
 
-	bool Lexer::IsEnd()
+	bool Lexer::IsEnd() const
 	{
 		return pos >= strData.length();
 	}
