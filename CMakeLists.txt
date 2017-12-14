@@ -3,7 +3,7 @@ project(MiracleCpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-file(GLOB_RECURSE SOURCE_FILES *.cpp)
+file(GLOB SOURCE_FILES *.cpp)
 
 add_executable(miracle ${SOURCE_FILES})
 

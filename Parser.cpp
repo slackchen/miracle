@@ -2,6 +2,7 @@
 
 namespace Miracle
 {
+
 	Parser::Parser(std::string code): lexer(code)
 	{
 	}
@@ -131,6 +132,17 @@ namespace Miracle
 
 	void Parser::ParseError()
 	{
-		throw std::exception("Parse error");
+		throw ParserException("Parse error");
 	}
+
+    const char* ParserException::what() const noexcept
+    {
+        return msg.c_str();
+    }
+
+    ParserException::ParserException(const char *msg) noexcept
+        : msg(msg)
+    {
+
+    }
 }

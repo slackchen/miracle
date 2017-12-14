@@ -9,6 +9,16 @@
 
 namespace Miracle
 {
+	class ParserException : public std::exception
+	{
+		std::string msg;
+
+	public:
+		ParserException(const char* msg) noexcept;
+
+		virtual const char* what() const noexcept;
+	};
+
 	class Parser
 	{
 		Lexer lexer;

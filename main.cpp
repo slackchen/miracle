@@ -30,7 +30,7 @@ int main()
 
 			std::cout << assembler.Run() << std::endl;
 		}
-		catch (std::exception e)
+		catch (std::exception& e)
 		{
 			std::cout << e.what() << std::endl;
 		}
