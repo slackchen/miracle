@@ -8,7 +8,7 @@
 
 namespace Miracle
 {	
-	typedef std::shared_ptr<class SyntaxNode> SyntaxNodePtr;
+	using SyntaxNodePtr = std::shared_ptr<class SyntaxNode>;
 
 	class SyntaxNode
 	{
